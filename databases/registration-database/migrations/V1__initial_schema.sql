@@ -6,7 +6,7 @@ create table users (
   unique key name (name)
 )
 engine = innodb
-default charset = utf8;
+default charset = utf8mb4;
 
 create table accounts (
   id       bigint(20) not null auto_increment,
@@ -18,7 +18,7 @@ create table accounts (
   constraint foreign key (owner_id) references users (id)
 )
 engine = innodb
-default charset = utf8;
+default charset = utf8mb4;
 
 create table projects (
   id         bigint(20) not null auto_increment,
@@ -31,4 +31,4 @@ create table projects (
   constraint foreign key (account_id) references accounts (id)
 )
 engine = innodb
-default charset = utf8;
+default charset = utf8mb4;

@@ -6,4 +6,4 @@ create table stories (
   primary key (id)
 )
 engine = innodb
-default charset = utf8;
+default charset = utf8mb4;
