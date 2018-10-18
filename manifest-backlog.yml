@@ -2,10 +2,10 @@ applications:
 - name: tracker-backlog
   path: ./applications/backlog-server/build/libs/backlog-server.jar
   routes:
-  - route: backlog-pal-sw-am.apps.chicken.pal.pivotal.io
+  - route: backlog-pal-sw-am.cfapps.io
   memory: 1G
   instances: 1
   env:
-    REGISTRATION_SERVER_ENDPOINT: https://registration-pal-sw-am.apps.chicken.pal.pivotal.io
+    REGISTRATION_SERVER_ENDPOINT: https://registration-pal-sw-am.cfapps.io
   services:
   - tracker-backlog-database
