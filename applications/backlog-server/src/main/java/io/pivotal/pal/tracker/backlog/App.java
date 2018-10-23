@@ -8,11 +8,14 @@ import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.web.client.RestOperations;
 
 import java.util.TimeZone;
 
-
+@EnableWebSecurity
+@EnableResourceServer
 @SpringBootApplication(exclude = RabbitAutoConfiguration.class)
 @EnableCircuitBreaker
 @EnableEurekaClient
@@ -26,8 +29,8 @@ public class App {
 
     @Bean
     ProjectClient projectClient(
-        RestOperations restOperations,
-        @Value("${registration.server.endpoint}") String registrationEndpoint
+            RestOperations restOperations,
+            @Value("${registration.server.endpoint}") String registrationEndpoint
     ) {
         return new ProjectClient(restOperations, registrationEndpoint);
     }
